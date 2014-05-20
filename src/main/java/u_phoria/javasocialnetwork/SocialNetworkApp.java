@@ -1,5 +1,7 @@
 package u_phoria.javasocialnetwork;
 
+import java.io.Console;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,10 +25,14 @@ public class SocialNetworkApp {
 
 	public void run() {
 		while(true) {
-			String lastRead = System.console().readLine().trim();
+			Console console = System.console();
+			PrintWriter writer = console.writer();
+			writer.print("> ");
+			writer.flush();
+			String lastRead = console.readLine().trim();
 			if ("exit".equals(lastRead))
 				break;
-			commandLineProcessor.process(lastRead, System.console().writer());
+			commandLineProcessor.process(lastRead, console.writer());
 		}
 	}
 

@@ -1,7 +1,8 @@
 package u_phoria.javasocialnetwork;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import java.io.Console;
@@ -37,7 +38,7 @@ public class SocialNetworkTest {
 		
 		socialNetworkApp.run();
 		
-		verifyZeroInteractions(printWriter);
+		verify(printWriter, never()).println(any());
 	}
 
 	@Test
