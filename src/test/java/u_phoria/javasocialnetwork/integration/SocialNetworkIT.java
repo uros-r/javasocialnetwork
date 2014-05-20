@@ -26,7 +26,7 @@ import u_phoria.javasocialnetwork.CommandLineProcessor;
 import u_phoria.javasocialnetwork.SocialNetworkApp;
 import u_phoria.javasocialnetwork.commands.FollowCommandFactory;
 import u_phoria.javasocialnetwork.commands.PostPrettyPrinter;
-import u_phoria.javasocialnetwork.commands.PostsCommandFactory;
+import u_phoria.javasocialnetwork.commands.PostCommandFactory;
 import u_phoria.javasocialnetwork.commands.ReadPostsCommandFactory;
 import u_phoria.javasocialnetwork.commands.WallCommandFactory;
 import u_phoria.javasocialnetwork.domain.Post;
@@ -57,7 +57,7 @@ public class SocialNetworkIT {
 		PostPrettyPrinter postPrettyPrinter = new PostPrettyPrinter();
 		UsersService usersService = new UsersService(userRepository);
 		List<CommandFactory> factories = Arrays.asList(new CommandFactory[] {
-				new PostsCommandFactory(postRepository),
+				new PostCommandFactory(postRepository),
 				new FollowCommandFactory(usersService),
 				new WallCommandFactory(usersService, postRepository, postPrettyPrinter),
 				new ReadPostsCommandFactory(postRepository, postPrettyPrinter)
